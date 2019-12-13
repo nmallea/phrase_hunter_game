@@ -20,10 +20,12 @@ startGame() {
   this.activePhrase = this.getRandomPhrase();
   this.activePhrase.addPhraseToDisplay();
 }
+
 // this method randomly retrieves one of the phrases stored in the phrases array and returns it
 getRandomPhrase() {
   return this.phrases[Math.floor(Math.random() * this.phrases.length)];
 }
+
 // this method controls most of the game logic. It checks to see if the button clicked by the player matches a letter in the phrase, and then directs the game based on a correct or incorrect guess
 handleInteraction(button) {
   button.disabled = true;
@@ -43,5 +45,29 @@ handleInteraction(button) {
     // add animation to wrong key pressed
     this.removeLife();
     this.checkForWin();
+  }
+}
+
+ // remove life function
+ removeLife() {
+  let images = [];
+  images = document.querySelectorAll('img');
+  images[this.missed].classList.add("animated", "jello");
+  // add animation to removed heart
+  images[this.missed].src = 'images/lostHeart.png';
+  this.missed += 1;
+  // replace blue hearts with gray hearts when missed
+  if (this.missed === 5) {
+    // if missed five times, game is over and special effects removed
+    this.gameOver();
+  }
+}
+
+// check for win function
+checkForWin() {
+  if (document.querySelectorAll('.hide').length === 0) {
+    return true;
+  } else {
+    return false;
   }
 }
