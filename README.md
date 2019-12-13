@@ -1,4 +1,4 @@
-### Developer Quote Game
+### Developer Quote Guessing Game
 A browser-based, word phrase game using vanilla JavaScript and OOP. 
 
 -------
