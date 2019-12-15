@@ -1,5 +1,5 @@
-### Developer Quote Guessing Game
-A browser-based, word phrase game using vanilla JavaScript and OOP. 
+### Programming Language Guessing Game
+A browser-based, word game using vanilla JavaScript and OOP. 
 
 -------
 
@@ -13,7 +13,7 @@ A player can guess a letter only once.
 
 ---
 
-##Bonus features
+### Bonus features
 
 - User can guess via the browser keyboard of physical keyboard
 - Letters are diabled and greyed out after selected
