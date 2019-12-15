@@ -18,3 +18,4 @@ A player can guess a letter only once.
 - User can guess via the browser keyboard of physical keyboard
 - Letters are diabled and greyed out after selected
 - Button borders on hover
+- Rubberband animation on phrase
