@@ -1,5 +1,5 @@
-### Developer Quote Guessing Game
-A browser-based, word phrase game using vanilla JavaScript and OOP. 
+### Programming Language Guessing Game
+A browser-based, word game using vanilla JavaScript and OOP. 
 
 -------
 
