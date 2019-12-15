@@ -10,3 +10,12 @@ A player continues to select letters until they guess the phrase (and win), or m
 If the player completes the phrase before they run out of guesses, a winning screen appears. If the player guesses incorrectly five times, a losing screen appears.
 
 A player can guess a letter only once. 
+
+---
+
+##Bonus features
+
+- User can guess via the browser keyboard of physical keyboard
+- Letters are diabled and greyed out after selected
+- Button borders on hover
+- Rubberband animation on phrase
