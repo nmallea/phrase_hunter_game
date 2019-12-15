@@ -13,7 +13,7 @@ class Phrase {
         liLetters.classList.add('space');
         liLetters.innerHTML = ' ';
       } else {
-        liLetters.classList.add('hide', 'letter', `${character}`, 'animated', 'rubberBand');  // adds animation
+        liLetters.classList.add('hide', 'letter', `${character}`, 'animated', 'rubberBand'); // adds animation
         liLetters.innerHTML = character;
       }
     })
@@ -33,4 +33,3 @@ class Phrase {
     })
   }
 }
-

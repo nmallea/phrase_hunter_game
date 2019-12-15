@@ -10,6 +10,8 @@ class Game {
       new Phrase('javascript'),
       new Phrase('objective c'),
       new Phrase('cobol'),
+      new Phrase('perl'),
+      new Phrase('basic'),
       new Phrase('fortran'),
       new Phrase('typescript')
     ];
@@ -40,12 +42,14 @@ class Game {
     if (this.activePhrase.checkLetter(button.textContent)) {
       // if true, show letters.
       this.activePhrase.showMatchedLetter(button.textContent);
+      button.classList.add('chosen');
       // if all letters guessed, Game Over
       if (this.checkForWin()) {
         this.gameOver(true)
       }
       // if false, remove life
     } else {
+      button.classList.add('wrong');
       this.removeLife();
       return false;
       // this.checkForWin();
