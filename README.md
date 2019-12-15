@@ -16,6 +16,6 @@ A player can guess a letter only once.
 ### Bonus features
 
 - User can guess via the browser keyboard of physical keyboard
-- Letters are diabled and greyed out after selected
+- Letters are greyed out in addition to color after being selected from keyboard
 - Button borders on hover
 - Rubberband animation on phrase
