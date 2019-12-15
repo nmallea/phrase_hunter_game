@@ -3,11 +3,11 @@ class Game {
   constructor() {
     this.missed = 0;
     this.phrases = [
-      new Phrase('its not a bug its a feature'),
-      new Phrase('talk is cheap show me the code'),
-      new Phrase('deleted code is debugged code'),
-      new Phrase('code is like humor when you have to explain it its bad'),
-      new Phrase('theres no test like production')
+      new Phrase('golang'),
+      new Phrase('python'),
+      new Phrase('kotlin'),
+      new Phrase('scala'),
+      new Phrase('javascript')
     ];
     this.activePhrase = null;
   }
@@ -78,7 +78,7 @@ class Game {
     overlay.style.display = 'block';
     if (this.checkForWin() === true) {
       console.log('hello 1');
-      gameOverMessage.textContent = 'Awesome! You win.';
+      gameOverMessage.textContent = 'Awesome, you win!';
       overlay.classList.remove('lose');
       overlay.classList.add('win');
     } else {
