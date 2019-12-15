@@ -7,7 +7,11 @@ class Game {
       new Phrase('python'),
       new Phrase('kotlin'),
       new Phrase('scala'),
-      new Phrase('javascript')
+      new Phrase('javascript'),
+      new Phrase('objective c'),
+      new Phrase('cobol'),
+      new Phrase('fortran'),
+      new Phrase('typescript')
     ];
     this.activePhrase = null;
   }
