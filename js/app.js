@@ -8,18 +8,32 @@
 let game;
 
 document.querySelector('#btn__reset').addEventListener('click', () => {
-    game = new Game();
-    game.startGame();
+  game = new Game();
+  game.startGame();
 });
 
 document.querySelector('#qwerty').addEventListener('click', e => {
-    if(e.target.className === 'key') {
-        game.handleInteraction(e.target);
-    }
+  if (e.target.className === 'key') {
+    game.handleInteraction(e.target);
+  }
 });
 
 let keys = [];
 keys = document.querySelectorAll('.key');
 keys.forEach(key => key.setAttribute('tabindex', -1));
 
+// add functionality to physical keyboard
+document.addEventListener('keydown', e => {
+  console.log('fuck: ', e.target);
+  const letter = event.key.toLowerCase();
+  const overlay = document.querySelector('#overlay').style.display;
 
+  if (overlay === 'none') {
+    keys.forEach(key => {
+      keyLetter = key.textContent;
+      if (letter.includes(keyLetter) && key.disabled !== true) {
+        game.handleInteraction(key);
+      }
+    });
+  }
+});

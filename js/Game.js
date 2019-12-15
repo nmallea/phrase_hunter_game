@@ -3,11 +3,11 @@ class Game {
   constructor() {
     this.missed = 0;
     this.phrases = [
-      new Phrase('Everything I know I learned from dogs.'),
-      new Phrase('You cant teach an old dog new tricks'),
-      new Phrase('Barking up the wrong tree'),
-      new Phrase('All bark and no bite'),
-      new Phrase('The better I get to know men the more I find myself loving dogs')
+      new Phrase('its not a bug its a feature'),
+      new Phrase('talk is cheap show me the code'),
+      new Phrase('deleted code is debugged code'),
+      new Phrase('code is like humor when you have to explain it its bad'),
+      new Phrase('theres no test like production')
     ];
     this.activePhrase = null;
   }
@@ -17,6 +17,7 @@ class Game {
   // hides the start screen overlay, calls the getRandomPhrase() method
   startGame() {
     document.querySelector('#overlay').style.display = 'none';
+    document.querySelector('.title').style.display = 'block';
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
   }
@@ -29,18 +30,21 @@ class Game {
   // this method controls most of the game logic. It checks to see if the button clicked by the player matches a letter in the phrase, and then directs the game based on a correct or incorrect guess
   handleInteraction(button) {
     button.disabled = true;
+    button.classList.add('hide-key');
+
     // checks if letter is in phrase
     if (this.activePhrase.checkLetter(button.textContent)) {
       // if true, show letters.
       this.activePhrase.showMatchedLetter(button.textContent);
       // if all letters guessed, Game Over
       if (this.checkForWin()) {
-        this.gameOver()
+        this.gameOver(true)
       }
       // if false, remove life
     } else {
       this.removeLife();
-      this.checkForWin();
+      return false;
+      // this.checkForWin();
     }
   }
 
@@ -51,38 +55,43 @@ class Game {
     images[this.missed].src = 'images/lostHeart.png';
     this.missed += 1;
     if (this.missed === 5) {
-      this.gameOver();
+      this.gameOver(false);
     }
   }
 
   // this method checks to see if the player has revealed all of the letters in the active phrase
   checkForWin() {
-    if (document.querySelectorAll('.hide').length === 0) {
-      return true;
-    } else {
+    const shownLetters = document.querySelectorAll('.show');
+    const phraseLetters = document.querySelectorAll('.letter');
+    if (shownLetters.length < phraseLetters.length) {
       return false;
+    } else {
+      return true;
     }
   }
 
   // this method displays the original start screen overlay, and depending on the outcome of the game, updates the overlay h1 element with a friendly win or loss message, and replaces the overlay’s start CSS class with either the win or lose CSS class
-  gameOver() {
+  gameOver() { // not workin
+    const gameOverMessage = document.querySelector('#game-over-message');
     const overlay = document.querySelector('#overlay');
-    overlay.style.display = 'none';
-    let gameOverMessage = document.querySelector('#game-over-message');
+    document.querySelector('.title').style.display = 'none';
+    overlay.style.display = 'block';
     if (this.checkForWin() === true) {
+      console.log('hello 1');
       gameOverMessage.textContent = 'Awesome! You win.';
       overlay.classList.remove('lose');
       overlay.classList.add('win');
     } else {
-      gameOverMsg.innerHTML = 'Sorry! The phrase was:' +
-        `<p>${this.activePhrase.phrase.charAt(0).toUpperCase() + this.activePhrase.phrase.slice(1)}</p>`;
+      console.log('hello 2');
+      gameOverMessage.innerHTML = 'Sorry! The phrase was:' +
+        `<p>${this.activePhrase.phrase.toUpperCase()}</p>`;
       overlay.classList.remove('win');
       overlay.classList.add('lose');
     }
     this.resetGame();
   }
 
-  // resetting the gameboard between games
+  // resets the gameboard between games
   // remove li elements
   resetGame() {
     let li = [];
