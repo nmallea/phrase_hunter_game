@@ -13,7 +13,7 @@ A player can guess a letter only once.
 
 ---
 
-##Bonus features
+###Bonus features
 
 - User can guess via the browser keyboard of physical keyboard
 - Letters are diabled and greyed out after selected
