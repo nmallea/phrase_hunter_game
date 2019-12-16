@@ -24,7 +24,6 @@ keys.forEach(key => key.setAttribute('tabindex', -1));
 
 // add functionality to physical keyboard
 document.addEventListener('keydown', e => {
-  console.log('fuck: ', e.target);
   const letter = event.key.toLowerCase();
   const overlay = document.querySelector('#overlay').style.display;
 
